@@ -1,3 +1,4 @@
+///////////////////////////////////////////////
 // 문제 1.아래 객체를 보고 user의 타입을 작성하세요
 
 let user:{name:string, age?:number, isAdmin:boolean} = {
@@ -11,6 +12,7 @@ user={
   isAdmin: false,
 }
 
+///////////////////////////////////////////////
 // 문제2. 읽기 전용(readonly) 배열을 생성하고, 배열에 직접 값을 추가하거나 변경하려고 하면 오류가 발생해야 합니다.
 
 // 숫자만 담을 수 있는 읽기 전용 배열을 작성하세요.
@@ -21,9 +23,8 @@ let numbers: readonly number[] = [99, 65, 22];
 numbers.push(4);
 numbers[0] = 42;
 
+///////////////////////////////////////////////
 // 문제3. 주어진 문제 1,2 번을 푸시오
-// 상품 이름과 가격만을 포함하는 새로운 배열을 생성하는 함수를 작성하세요.
-// 재고가 있는 상품만 포함하는 배열을 반환하는 함수를 작성하세요.
 
 const products: [string, number, boolean][] = [
   ["Laptop", 1000, true],
@@ -52,6 +53,7 @@ console.log(getProductNamesAndPrices(products));
 console.log(getAvailableProducts(products));
 // 기대 출력: [["Laptop", 1000, true], ["Book", 20, true]]
 
+///////////////////////////////////////////////
 // 문제 4. 사용자 정보를 업데이트하는 함수를 작성하세요. 나이가 제공되지 않으면 기본값으로 18을 사용하세요
 
 //매개변수, 리턴 타입 정의 필요
@@ -59,13 +61,14 @@ function updateUser(user: { name: string; age?: number }): {
   name: string;
   age?: number;
 } {
-  return { ...user, age: user.age ?? 18 };
+  return { name: user.name, age: user.age ?? 18 };
 }
 
 // 테스트 코드
 console.log(updateUser({ name: "Charlie" })); // { name: "Charlie", age: 18 }
 console.log(updateUser({ name: "Dana", age: 25 })); // { name: "Dana", age: 25 }
 
+///////////////////////////////////////////////
 // 문제5. 아래와 같은 데이터 구조를 사용하여 특정 카테고리에 해당하는 상품의 이름을 출력하는 함수를 작성하세요.
 
 // proudcts 타입정의  필요
