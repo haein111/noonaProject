@@ -4,12 +4,21 @@
 // 작업 상태를 나타내는 enum을 작성하세요.
 // 여기에 작성
 enum TaskStatus {
-  Pending = "작업이 대기 중입니다.",
-  InProgress = "작업이 진행 중입니다.",
-  Completed = "작업이 완료되었습니다.",
+  Pending = "Pending",
+  InProgress = "InProgress",
+  Completed = "Completed",
 }
 function getStatusMessage(status: TaskStatus): string {
-  return status;
+  switch (status) {
+    case TaskStatus.Pending:
+      return "작업이 대기 중입니다.";
+    case TaskStatus.InProgress:
+      return "작업이 진행 중입니다.";
+    case TaskStatus.Completed:
+      return "작업이 완료되었습니다.";
+    default:
+      return "알 수 없는 작업 상태입니다.";
+  }
 }
 
 // 테스트 코드
@@ -23,30 +32,27 @@ console.log(getStatusMessage(TaskStatus.Completed)); // "작업이 완료되었�
 // 작업 상태를 나타내는 enum 작성
 // 여기에 작성
 enum TaskStatus {
-  Pending = "문자열을 모두 대문자로 변환",
-  InProgress = "문자열을 소문자로 변환",
-  Completed = '문자열 앞에 "완료: "를 추가',
-  Failed = "에러를 발생시킵니다",
+  Pending = "Pending",
+  InProgress = "InProgress",
+  Completed = "Completed",
+  Failed = "Failed",
 }
-
 function processTask(status: TaskStatus, input: unknown): string {
-  if (typeof input != "string") {
-    throw new Error("입력값은 문자열이어야 합니다");
+  if (typeof input !== "string") {
+    throw new Error("입력값은 문자열이어야 합니다.");
   }
-
-  if (status === TaskStatus.Pending) {
-    return input.toUpperCase();
+  switch (status) {
+    case TaskStatus.Pending:
+      return input.toUpperCase();
+    case TaskStatus.InProgress:
+      return input.toLowerCase();
+    case TaskStatus.Completed:
+      return `완료: ${input}`;
+    case TaskStatus.Failed:
+      throw new Error("작업이 실패했습니다.");
+    default:
+      throw new Error("알 수 없는 작업 상태입니다.");
   }
-  if (status === TaskStatus.InProgress) {
-    return input.toLowerCase();
-  }
-  if (status === TaskStatus.Completed) {
-    return `완료: ${input}`;
-  }
-  if (status === TaskStatus.Failed) {
-    throw new Error("작업이 실패했습니다.");
-  }
-  throw new Error("undefined");
 }
 
 // 테스트 코드
