@@ -2,7 +2,7 @@
 // 문제 1. 배열의 첫 번째 요소를 반환하는 함수를 작성하세요. 배열의 요소 타입에 관계없이 작동해야 합니다.
 
 // 매개변수, 리턴타입 정의 필요
-function getFirstElement<T>(array: T): T | undefined {
+function getFirstElement<T>(array: T[]): T | undefined {
   return array[0];
 }
 
